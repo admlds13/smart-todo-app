@@ -64,7 +64,7 @@ python manage.py migrate
 python manage.py runserver
 
 
-Make sure to configure CORS and AI keys (or LM Studio).
+⚠️ Ensure you configure CORS and add your .env file with either an OpenAI API key or LM Studio endpoint.
 
 
 💻 Frontend (Next.js + Tailwind)
@@ -72,6 +72,8 @@ Make sure to configure CORS and AI keys (or LM Studio).
 cd frontend
 npm install
 npm run dev
+
+App runs at http://localhost:3000/
 
 
 📡 API Endpoints
@@ -92,31 +94,45 @@ npm run dev
     POST /api/ai/suggest/ – Get AI suggestions for task
 
 🧠 AI Integration Options
-Option 1: OpenAI API
 
-    Set OPENAI_API_KEY in .env file
+Option 1: OpenAI API (Cloud)
 
-Option 2: LM Studio (Recommended)
+    Add your key in .env:
+    OPENAI_API_KEY=sk-xxxxxxxx
 
-    Download from: https://lmstudio.ai
+Option 2: LM Studio (Local)
 
-    Run local model (e.g., Mistral, LLaMA)
+    Download from https://lmstudio.ai
 
-    Connect backend to local server (usually http://localhost:1234/v1/chat/completions)
+    Load a local model (e.g. Mistral)
+
+    Use endpoint: http://localhost:1234/v1/chat/completions
 
 
-smart-todo/
+🗂️ Folder Structure
+
+smart-todo-app/
 ├── backend/
-│   ├── smarttodo
-│   ├── tasks.py
+│   ├── smarttodo/
 │   ├── manage.py
 │   ├── requirements.txt
 ├── frontend/
 │   ├── src/
 │   ├── package.json
-│   ├── ....
 ├── screenshots/
 │   ├── dashboard.png
 │   ├── task_ai.png
 │   └── context.png
+├── README.md
+└── .gitignore
 
+🔐 Security
+
+Secrets like .env and API keys are excluded from the repo using .gitignore.
+If you find any issue, please raise it in GitHub Issues or email the maintainer.
+
+
+🙌 Author
+
+Loganathan Thamotharan
+Full Stack Developer Assignment – DevGods
